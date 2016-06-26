@@ -1,0 +1,29 @@
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.cache
+
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
+
+# Users Environment Variables
+.lock-wscript
+
+*.sublime*
+.idea
+
+compare/bower_components/**/.*
+
+bitmaps_test
+bitmaps_reference
+compare/config.json
+capture/config.json

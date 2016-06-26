@@ -1,0 +1,39 @@
+{
+  "name": "sticky-bits",
+  "version": "1.0.0",
+  "description": "sticky stuff for websites",
+  "main": "index.html",
+  "scripts": {
+    "test": "Sticky Bits"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "js",
+    "sticky"
+  ],
+  "author": "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffryin)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yowainwright/sticky-bits.git/issues"
+  },
+  "homepage": "https://github.com/yowainwright/sticky-bits.git#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-purifycss": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-webserver": "^0.9.1",
+    "purify-css": "^1.1.9",
+    "qunit": "^0.9.1"
+  },
+  "dependencies": {
+    "gulp-purifycss": "^0.2.0"
+  }
+}

@@ -1,0 +1,127 @@
+.main-nav {
+	background-color: black;
+	@include micro-clearfix;
+	&__content {
+		display: table;
+		margin: 0 auto;
+		max-width: $width-dsc-1024px;
+		text-align: center;
+		width: 100%;
+	}
+	&__link {
+		display: none;
+	}
+	&__button {
+		@include button;
+		background: none;
+		display: block;
+		@include media-query($width-dsc-small) {
+			height: 100%;
+		}
+	}
+	&__link,
+	&__button {
+		color: white;
+		font-family: $font-family-sans-serif;
+		padding: $spacing-unit #{$spacing-unit / 2};
+		position: relative;
+		text-transform: uppercase;
+		vertical-align: middle;
+		@include media-query($width-dsc-small) {
+			display: table-cell;
+		}
+	}
+	&__button {
+		&--close,
+		&--menu,
+		&--box {
+			font-weight: bold;
+			margin: $spacing-unit;
+			min-height: $logo-small;
+			position: absolute;
+			@include media-query($width-dsc-small) {
+				position: relative;
+			}
+		}
+		&--close,
+		&--menu {
+			padding-left: calc(#{$hamburger-width} + #{$spacing-unit / 2});
+		}
+		&--close {
+			display: none;
+			.js-side-nav-is-displayed & {
+				display: block;
+				@include media-query($width-dsc-small) {
+					display: table-cell;
+				}
+			}
+			[name="close"] {
+				fill: white;
+				height: $hamburger-height;
+				left: 0;
+				margin-top: -1px;
+				position: absolute;
+				top: 50%;
+				width: $hamburger-width;
+				@include prefix(transform, translateY(-50%), webkit moz ms);
+			}
+		}
+		&--menu {
+			display: block;
+			@include media-query($width-dsc-small) {
+				display: table-cell;
+			}
+			.js-side-nav-is-displayed & {
+				display: none;
+			}
+			[name="hamburger"] {
+				height: $hamburger-height;
+				left: 0;
+				margin-top: -1px;
+				position: absolute;
+				top: 50%;
+				width: $hamburger-width;
+				@include prefix(transform, translateY(-50%), webkit moz ms);
+			}
+		}
+		&--box {
+			display: block;
+			padding-right: calc(#{$hamburger-width} + #{$spacing-unit / 2});
+			right: 0;
+			top: 0;
+			@include media-query($width-dsc-small) {
+				display: table-cell;
+			}
+			[name="box"] {
+				height: $box-height;
+				right: 0;
+				margin-top: -1px;
+				position: absolute;
+				top: 50%;
+				width: $box-width;
+				@include prefix(transform, translateY(-50%), webkit moz ms);
+			}
+		}
+	}
+	&__button-text {
+		display: none;
+		@include media-query($width-dsc-small) {
+			display: inline;
+			margin: 0 0 #{$spacing-unit / 4} #{$spacing-unit / 4};
+		}
+	}
+	&__link--home {
+		display: inline-block;
+		@include media-query($width-dsc-small) {
+			display: table-cell;
+		}
+		[name="logo"] {
+			height: $logo-small;
+			width: $logo-small;
+			@include media-query($width-dsc-small) {
+				height: $logo-large;
+				width: $logo-large;
+			}
+		}
+	}
+}

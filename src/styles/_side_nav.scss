@@ -1,0 +1,35 @@
+.side-nav {
+	background-color: $color-grey-dark;
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	padding-top: $spacing-unit * 2;
+	position: absolute; 
+	top: 0;
+	visibility: hidden;
+	width: 0;
+	z-index: $z-index-side-nav;
+	.js-side-nav-is-displayed & {
+		visibility: visible;
+		width: $width-side-nav;
+	}
+	&__items {
+		list-style-type: none;
+	}
+	&__item {
+		line-height: $spacing-unit * 2.5;
+		padding-left: $spacing-unit;
+	}
+	&__child {
+
+	}
+	&__link {
+		color: white;
+		font-family: $font-family-sans-serif;
+		text-transform: uppercase;
+		&:first-of-type {
+
+		}
+
+	}
+}

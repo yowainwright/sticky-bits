@@ -1,0 +1,87 @@
+$spacing-unit: 1rem !default;
+$font-size-default: $spacing-unit * 1.25;
+// fonts
+	// font defaults
+	// system fonts: similar to medium we can put our font default to the computer
+	// system fonts reference: https://medium.com/designing-medium/system-shock-6b1dc6d6596f
+	$avenir: Avenir, "Helvetica Neue", Helvetica, Arial, sans;
+	$avenir-bold: AvenirNext-Bold, Avenir, "Helvetica Neue", Helvetica, Arial, sans;
+	$avenir-bold-condensed: AvenirNextCondensed-Bold,Avenir, "Helvetica Neue", Helvetica, Arial, sans;
+
+	$font-family-copy: $avenir;
+	$font-family-sans-serif: $avenir;
+	$font-family-title: $avenir-bold;
+	$font-family-subtitle: $avenir-bold-condensed;
+	$font-family-default: $font-family-sans-serif;
+
+	$font-size-small: $font-size-default * 0.8;
+
+	// line heights
+	$line-height: 1;
+	$line-height-default: $line-height * 2;
+
+// colors
+
+	// greys
+	$color-grey-dark: #292929;
+	$color-grey-lightest: #fdfdfd;
+	$color-grey: #828282;
+	$color-grey-light: lighten($color-grey, 40%);
+
+	// brand 
+	$color-background-footer: #303030;
+	$color-font-footer: #B6B4B3;
+
+// spacing
+	// The defined spacing unit is the REM 
+	// REM: https://developer.mozilla.org/en-US/docs/Web/CSS/length
+	$spacing-unit: 1rem !default;
+	$spacing-unit-large: $spacing-unit * 4;
+
+
+// Widths
+	// All widths are based on the width of the content area. The content area is what decides width b/c it is PARAMOUNT
+	// REM defined widths have been avoided initially but this should ~potentially~ be changed
+	$width-default: 800px; 
+	$width-large: $width-default * 1.5;
+	$width-medium-large: $width-default * 1.25;
+	$width-small: $width-default / 2;
+
+	$width-dsc-1024px: 1024px;
+
+	// The following widths are static (aka ~magic~ based)
+	// They're related to other content width which will be clear in the naming conventions
+	// DSC medium & small are loosely added
+	// Breakpoint widths (from bootstrap)
+	$width-dsc-wide: $screen-lg;
+	$width-dsc-medium: $screen-md;
+	$width-dsc-small: $screen-sm;
+
+	// Media Queries (breakpoints)
+	// Media Queries ~within~ Jekyll use both a media query mixin
+	// Media Querie Mixin: _mixins.scss => @mixin media-query
+	// Media Querie Quick Reference: @include media-query($width-dsc-small) { /* your css here */ }
+
+// icons
+$logo-small: 40px;
+$logo-large: 80px;
+$hamburger-width: 26px;
+$hamburger-height: 20px;
+$box-width: 23px;
+$box-height: 28px;
+$bbb-width: 33px;
+$bbb-height: 35px;
+$ca-business-svg-width: 48px;
+$ca-business-svg-height: 33px;
+$social-footer-size: 30px; // TODO: update naming convention
+$social-size-meta: 20px;
+
+// magical widths
+$width-meta-date: 70px;
+$width-side-nav: 280px;
+
+// image defaults
+$image-35x35: 35px;
+
+// z-index
+$z-index-side-nav: 11;
