@@ -12,7 +12,7 @@
 
     var selector = document.getElementById( stickyId ),
         wrapper = document.createElement("div"),
-        divAdded = false,
+        divAdded = false;
         wrapper.id = stickyID + '-sticky-wrapper';
 
     if ( ! divAdded ) {
@@ -36,7 +36,8 @@
     window.addOnScroll = function( makeSticky ) {
       var otherOnScroll = window.onscroll;
       window.onscroll = function() {
-        if( otherOnScroll ) otherOnScroll();
+        if( otherOnScroll ) {
+          otherOnScroll();
           makeSticky();
         }
       };

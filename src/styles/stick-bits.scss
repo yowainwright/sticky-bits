@@ -3,7 +3,6 @@
 @import "variables";
 @import "mixins";
 @import "base";
-@import "page";
 
 .nav {
 	&__items {
@@ -20,6 +19,6 @@
 }
 .footer {
 	&__text {
-		
+
 	}
 }

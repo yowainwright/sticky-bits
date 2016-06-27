@@ -4,6 +4,14 @@
         @content;
     }
 }
+// vender prefixing
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
 // micro-clearfix
 @mixin micro-clearfix {
 	&:before,
