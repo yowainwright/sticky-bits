@@ -4,20 +4,17 @@
 
 ## Why?
 
-Because. Also, Sticky Bits is meant to do one thing = deal with sticky stuff (sticky navs & other stuff like that).  
+Because. =] Also, Sticky Bits is meant to do one thing = deal with sticky stuff (sticky navs & other stuff like that).  
 
 ## Setup 
 
 
 ## TODOS
 
-- Currently, this component uses jQuery. This may be removed TBT.
-- Should we use Babel? Should we implement the AirBNB Standards?
+- Add Throttling
+- Add debounce
+- Stop functionality
 
-
-## Reference
-
-- [gulp](http://gulpjs.com/)
 
 
 
