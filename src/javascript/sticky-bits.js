@@ -19,7 +19,6 @@
     var stickyParent = document.getElementById( stickyParentId );
     var makeSticky = function() {
       var offset = wrapper.offsetTop;
-      console.log(offset, window.scrollY);
       if ( offset >= window.scrollY ) {
         return wrapper.className = '';
       } else {
