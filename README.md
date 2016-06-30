@@ -1,19 +1,20 @@
 # Sticky Bits
 
-> Yet another sticky thing 
+> Stuff stuff for webpages
 
 ## Why?
 
-Because. =] Also, Sticky Bits is meant to do one thing = deal with sticky stuff (sticky navs & other stuff like that).  
-
-## Setup 
-
+Because. =] Also, Sticky Bits is meant to do one thing - stick stuff when scrolling vertically (navs & other stuff like that).  
 
 ## TODOS
 
-- Add Throttling
-- Add debounce
-- Stop functionality
+- Add throttling for window scroll 
+- Add debounce for window resize
+- Add stop sticky to un-stick things when scrolling
+
+## First lil' demo
+
+[Sticky Bit on Codepen](http://codepen.io/yowainwright/pen/VjPRgz/)
 
 
 
