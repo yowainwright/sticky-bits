@@ -1,6 +1,6 @@
 # Sticky Bits
 
-> Stuff stuff for webpages
+> Sticky stuff for webpages
 
 ## Why?
 
