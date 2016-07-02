@@ -1,5 +1,5 @@
 (function() {
 
-	StickyBits('nav-one');
+	StickyBits('nav-two', 'section-second');
 
 })();

@@ -1980,72 +1980,17 @@ if ( typeof exports !== "undefined" ) {
 // This script is meant for this bower package only
 (function(document) { 
 
-	if ( window.location.href.indexOf("?=qunit") <= -1) return;
-	$('#qunit-wrapper').show();
+	// if ( window.location.href.indexOf("?=qunit") <= -1) return;
+	// $('#qunit-wrapper').show();
 
 	// Is QUnit loaded?
-	QUnit.test( "Is QUnit Loaded?", function( assert ) {
-  	assert.ok( 1 == "1", "QUnit is loaded, we can test" );
-	});
-
-	QUnit.test( "Are all of the dependancies loaded?", function( assert ) {
-  	assert.ok( typeof jQuery !== 'undefined', "All dependancies has loaded!" );
-  	assert.ok( typeof Utils.toggler !== 'undefined', "Toggle has loaded!" );
-	});
+	// QUnit.test( "Is QUnit Loaded?", function( assert ) {
+ //  	assert.ok( 1 == "1", "QUnit is loaded, we can test" );
+	// });
 
 })(this, this.document);
-(function( window, factory ) {
-
-  StickyBits = window.StickyBits || {};
-
-  if ( 'undefined' === typeof StickyBits ) return console.log('Unmet Dependencies');
-
-  factory( StickyBits );
-
-})( this, function( $, utils ) {
-
-  StickyBits = function( stickyId ) {
-
-    var selector = document.getElementById( stickyId ),
-        wrapper = document.createElement("div"),
-        divAdded = false;
-        wrapper.id = stickyID + '-sticky-wrapper';
-
-    if ( ! divAdded ) {
-      selector.parentNode.insertBefore(wrapper, selector);
-      divAdded = true;
-    }
-    selector.parentNode.removeChild(selector);
-    wrapper.appendChild(selector); 
-
-    var stickBitClass = typeof stickBitClass !== 'undefined' ? stickBitClass : 'js-is-sticky-bit';
-
-    var makeSticky = function() {
-      var offset = wrapper.offsetTop;
-      if ( offset >= window.scrollY ) {
-        wrapper.className = '';
-      } else {
-        wrapper.className += stickBitClass;
-      }
-    };
-    
-    window.addOnScroll = function( makeSticky ) {
-      var otherOnScroll = window.onscroll;
-      window.onscroll = function() {
-        if( otherOnScroll ) {
-          otherOnScroll();
-          makeSticky();
-        }
-      };
-    };
-
-    return this;
-
-  };
-  
-});
 (function() {
 
-	StickyBits('nav-one');
+	StickyBits('nav-two', 'section-second');
 
 })();

@@ -1,3 +1,0 @@
-(function() {
-  StickyBits('nav-one');
-})();

@@ -16,6 +16,7 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
 }
 
 article,
@@ -270,13 +271,6 @@ li {
 }
 
 /**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    
-}
-
-/**
  * Links
  */
 a {
@@ -288,40 +282,13 @@ a {
   }   
 }
 
-/**
- * Blockquotes
- */
-blockquote {
-}
-
-/**
- * Code formatting
- */
-pre,
-code {
-
-}
-
-code {
-
-}
-
-pre {
-
-
-    > code {
-
-    }
-}
-
 // general specific styles
 .main {
   @include micro-clearfix;
 }
 
-.js-is-toggle {
-  .main-nav,
-  .site-footer {
-    margin-left: $width;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
