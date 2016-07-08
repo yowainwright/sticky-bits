@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/yowainwright/sticky-bits.git#readme",
   "devDependencies": {
+    "bower": "^1.7.9",
     "concat": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

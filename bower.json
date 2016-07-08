@@ -1,0 +1,21 @@
+{
+  "name": "sticky-bits",
+  "description": "sticky stuff for websites",
+  "main": "index.html",
+  "authors": [
+    "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffryin)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "js",
+    "sticky"
+  ],
+  "homepage": "https://github.com/yowainwright/sticky-bits",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
