@@ -1,7 +1,6 @@
 (function( window, factory ) {
 
   StickyBits = window.StickyBits || {};
-  if ( 'undefined' === typeof StickyBits ) return console.log('Unmet Dependencies');
   factory( StickyBits );
 
 })( this, function( utils ) {
@@ -59,9 +58,9 @@
       window.onscroll = function() {
         if ( otherOnScroll ) {
           otherOnScroll();
-          stickiness();
+          window.requestAnimationFrame(stickiness);
         } else {
-          stickiness();
+          window.requestAnimationFrame(stickiness);
         }
       };
     };
