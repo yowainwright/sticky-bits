@@ -4,19 +4,22 @@
 
 ## Why?
 
-Because. =] Also, Sticky Bits is meant to do one thing - stick stuff when scrolling vertically (navs & stuff like that).  
+Because. =] Also, Sticky Bits is meant to do one thing - stick navs or other block elements when scrolling vertically. 
+
+*Update:* Sticky bits can be setup for hijacking `window scroll` which can result is high quality device scrolling. 
 
 ## TODOS
 
-- Last one will be to introduce a \*_garage door_
 - Add throttling for window scroll (maybe)
 - Add debounce for window resize (probably)
 
-## First lil' demo
+## First lil' demos
 
-[Sticky Bit on Codepen, sticky only](http://codepen.io/yowainwright/pen/VjPRgz/)
+[Sticky Bits on Codepen, sticky only](http://codepen.io/yowainwright/pen/VjPRgz/)
 
-[Sticky Bit on Codepen, w/ sticky stop](http://codepen.io/yowainwright/pen/jAmdNO)
+[Sticky Bits on Codepen, w/ sticky stop](http://codepen.io/yowainwright/pen/jAmdNO)
+
+[Sticky Bits on Codepen, for device scrolling](http://codepen.io/yowainwright/pen/Bzxmpw)
 
 
 
