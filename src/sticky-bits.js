@@ -7,65 +7,74 @@
 
   window.StickyBits = function( 
     stickyId, 
-    stickyStopId
+    stickyStopId,
+    stickyCloneId
   ) {
+
     var selector = document.getElementById( stickyId ),
-        wrapper = document.createElement("div"),
-        divAdded = false,
-        stickyParentId = stickyId + '-sticky-wrapper',
-        stickyStop = stickyStopId ? document.getElementById( stickyStopId ) : false;
-    wrapper.id = stickyParentId;
-    if ( ! divAdded ) {
-      selector.parentNode.insertBefore(wrapper, selector);
-      divAdded = true;
+        stickyStop = stickyStopId ? document.getElementById( stickyStopId ) : false,
+        stickyClone = stickyCloneId ? document.getElementById( stickyCloneId ) : false;
+
+    if ( stickyClone === false ) {
+      var wrapper = document.createElement("div"),
+          divAdded = false,
+          stickyParentId = stickyId + '-sticky-wrapper';
+          wrapper.id = stickyParentId;
+      if ( ! divAdded ) {
+        selector.parentNode.insertBefore(wrapper, selector);
+        divAdded = true;
+      }
+      selector.parentNode.removeChild(selector);
+      wrapper.appendChild(selector); 
+
+      var stickyParent = document.getElementById( stickyParentId ),
+          stickyParentHeight = selector.offsetHeight;
+          stickyParent.style.height = stickyParentHeight + 'px';
+      var offsetter = wrapper;
+      var scrollElement = window;
+    } else {
+      var offsetter = selector;
+      var scrollElement = document.getElementById('scrolled-element');
     }
-    selector.parentNode.removeChild(selector);
-    wrapper.appendChild(selector); 
-
-    var stickyParent = document.getElementById( stickyParentId ),
-        stickyParentHeight = selector.offsetHeight;
-    stickyParent.style.height = stickyParentHeight + 'px';
-
     var stickiness = function() {
-
-      var offset = wrapper.offsetTop,
-          scrollSpot = window.scrollY;
+      var offset = offsetter.offsetTop,
+          scrollSpot = scrollElement === window ? scrollElement.scrollY : scrollElement.scrollTop;
       if ( stickyStop !== false ) {
         stopOffset = stickyStop.offsetTop;
-        selector.style = '';
+        offsetter.style.top = 'auto';
       }
       if ( offset >= scrollSpot ) {
-        stickyParent.setAttribute('data-stickybits-sticky', false);
+        offsetter.setAttribute('data-stickybits-sticky', false);
       }
       if ( offset < scrollSpot ) {
-        stickyParent.setAttribute('data-stickybits-stop', false);
-        stickyParent.setAttribute('data-stickybits-sticky', true);
-        selector.style = '';
+        offsetter.setAttribute('data-stickybits-stop', false);
+        offsetter.setAttribute('data-stickybits-sticky', true);
+        offsetter.style.top = '0';
       }
       if ( stickyStop !== false ) {
-          if ( stopOffset < scrollSpot ) {
-            stickyParent.setAttribute('data-stickybits-sticky', false);
-            stickyParent.setAttribute('data-stickybits-stop', true);
-            selector.style.top = stopOffset +'px';
-          }
+        if ( stopOffset < scrollSpot ) {
+          offsetter.setAttribute('data-stickybits-sticky', false);
+          offsetter.setAttribute('data-stickybits-stop', true);
+          offsetter.style.top = stopOffset +'px';
+        }
       }
-
       return;
     };
 
-    window.addOnScroll = function( stickiness ) {
-      var otherOnScroll = window.onscroll;
-      window.onscroll = function() {
+    scrollElement.addOnScroll = function( stickiness ) {
+      var otherOnScroll = scrollElement.onscroll;
+      scrollElement.onscroll = function() {
         if ( otherOnScroll ) {
           otherOnScroll();
-          window.requestAnimationFrame(stickiness);
+          stickiness();
         } else {
-          window.requestAnimationFrame(stickiness);
+          stickiness();
         }
       };
     };
 
-    window.addOnScroll(stickiness);
+    scrollElement.addOnScroll(stickiness);
+
     return this;
   }; 
 

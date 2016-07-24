@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Sticky Bits Example - Device</title>
+	<link rel="stylesheet" media="all" href="css/example-device.css">
+</head>
+<body>
+	<div id="contained-element" class="contained-element">
+	<div id="scrolled-element" class="scrolled-element">
+		<header>
+			<nav id="nav-one" class="nav nav--one">
+				<ul class="nav__items">
+					<li class="nav__item">
+						A nav item
+					</li>
+					<li class="nav__item">
+						Another nav item
+					</li>
+				</ul>
+			</nav>
+			<nav id="nav-two" class="nav nav--two">
+				<ul class="nav__items">
+					<li class="nav__item">
+						A nav item
+					</li>
+					<li class="nav__item">
+						Another nav item
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="main">
+			<section id="section-first" class="section section--first">
+				<p class="section__text">First Section</p> 
+			</section>
+			<section id="section-second" class="section section--second">
+				<p class="section__text">Section Section</p>
+			</section>
+		</main>
+		<footer class="footer">
+			<p class="footer__text">The footer. You've reached the footer.</p>
+		</footer>
+	</div>
+	</div>
+	<script rel="javascript" src="src/sticky-bits.js"></script>
+	<script>
+	StickyBits('nav-two', 'section-second', 'nav-two');
+		
+	</script>
+</body>
+</html>
