@@ -6,3 +6,9 @@
   position: -o-sticky;
   position: sticky;
 }
+[data-position-sticky=true][data-stickybits-sticky=true] {
+	top: 0;
+}
+[data-position-sticky=true][data-stickybits-sticky=false] {
+	top: auto;
+}
