@@ -5,65 +5,78 @@
 
 })( this, function( utils ) {
 
-  window.StickyBits = function( 
-    stickyId, 
-    stickyStopId,
-    stickyCloneId
-  ) {
+  window.StickyBits = function( selectorId ) {
 
-    var selector = document.getElementById( stickyId ),
-        stickyStop = stickyStopId ? document.getElementById( stickyStopId ) : false,
-        stickyClone = stickyCloneId ? document.getElementById( stickyCloneId ) : false;
+    var stickyBit = document.getElementById( selectorId );
 
-    if ( stickyClone === false ) {
-      var wrapper = document.createElement("div"),
-          divAdded = false,
-          stickyParentId = stickyId + '-sticky-wrapper';
-          wrapper.id = stickyParentId;
-      if ( ! divAdded ) {
-        selector.parentNode.insertBefore(wrapper, selector);
-        divAdded = true;
-      }
-      selector.parentNode.removeChild(selector);
-      wrapper.appendChild(selector); 
+    var stickyPositionTest = function( noPrefixes ) {
 
-      var stickyParent = document.getElementById( stickyParentId ),
-          stickyParentHeight = selector.offsetHeight;
-          stickyParent.style.height = stickyParentHeight + 'px';
-      var offsetter = wrapper;
-      var scrollElement = window;
-    } else {
-      var offsetter = selector;
-      var scrollElement = document.getElementById('scrolled-element');
-    }
-    var stickiness = function() {
-      var offset = offsetter.offsetTop,
-          scrollSpot = scrollElement === window ? scrollElement.scrollY : scrollElement.scrollTop;
-      if ( stickyStop !== false ) {
-        stopOffset = stickyStop.offsetTop;
-        offsetter.style.top = 'auto';
+      var el = document.createElement( 'test' ),
+          position = 'position: ',
+          sticky = 'sticky',
+          mStyle = el.style;
+
+      if ( ! noPrefixes ) {
+        mStyle.cssText = position + [ '-webkit-', '-moz-', '-ms-', '-o-', '' ].join( sticky + ';' + position ) + sticky + ';';
+      } else {
+        mStyle.cssText = position + sticky;
       }
-      if ( offset >= scrollSpot ) {
-        offsetter.setAttribute('data-stickybits-sticky', false);
-      }
-      if ( offset < scrollSpot ) {
-        offsetter.setAttribute('data-stickybits-stop', false);
-        offsetter.setAttribute('data-stickybits-sticky', true);
-        offsetter.style.top = '0';
-      }
-      if ( stickyStop !== false ) {
-        if ( stopOffset < scrollSpot ) {
-          offsetter.setAttribute('data-stickybits-sticky', false);
-          offsetter.setAttribute('data-stickybits-stop', true);
-          offsetter.style.top = stopOffset +'px';
-        }
-      }
-      return;
+
+      return mStyle[ 'position' ].indexOf( sticky ) !== -1;
+
     };
 
-    scrollElement.addOnScroll = function( stickiness ) {
-      var otherOnScroll = scrollElement.onscroll;
-      scrollElement.onscroll = function() {
+    var test = stickyPositionTest();
+    if ( test === true ) {
+
+      stickyBit.setAttribute('data-position-sticky', true);
+
+    } else {
+
+      var wrapper = document.createElement("div"),
+          divAdded = false,
+          stickyParentId = selectorId + '-sticky-wrapper',
+          stickyParentHeight = stickyBit.offsetHeight;
+
+      wrapper.id = stickyParentId;
+
+      if ( ! divAdded ) {
+        stickyBit.parentNode.insertBefore(wrapper, stickyBit);
+        divAdded = true;
+      }
+
+      stickyBit.parentNode.removeChild(stickyBit);
+      wrapper.appendChild(stickyBit); 
+      wrapper.style.height = stickyParentHeight + 'px';
+
+    }
+
+    var stickiness = function() {
+
+      var offset,
+          scrollPosition = window.scrollY;
+
+      if ( test === true ) {
+        offset = stickyBit.offsetTop;
+        if ( offset > scrollPosition && stickyBit.style.top === '0') {
+          return stickyBit.style.top = '';
+        } else {
+          return stickyBit.style.top = '0';
+        }
+
+      } else {
+        offset = wrapper.offsetTop;
+        if ( offset > scrollPosition ) {
+          return wrapper.setAttribute('data-stickybits-sticky', false);
+        } else {
+          return wrapper.setAttribute('data-stickybits-sticky', true);
+        }
+      }
+    };
+
+    window.addOnScroll = function( stickiness ) {
+      var otherOnScroll = window.onscroll;
+      window.onscroll = function() {
         if ( otherOnScroll ) {
           otherOnScroll();
           stickiness();
@@ -73,9 +86,10 @@
       };
     };
 
-    scrollElement.addOnScroll(stickiness);
+    window.addOnScroll(stickiness);
 
     return this;
+
   }; 
 
 });

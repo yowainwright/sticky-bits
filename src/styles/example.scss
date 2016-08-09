@@ -1,35 +1,31 @@
 @charset "utf-8";
 
 @import "sticky_bits";
-html,
+
 body {
 	margin: 0;
 	padding: 0;
-}
-.contained-element {
-  width: 100%;
-  @extend %stickyContainer;
-}
-.scrolled-element {
-  @extend %stickyBitContent;
 }
 ul {
 	margin: 0;
 }
 .nav {
-  color: white;
   &--one {
     background-color: black;
   } 
   &--two {
     background-color: red;
-    left: 0;
     width: 100%;
-    &[data-stickybits-sticky=true] {
-    	position: absolute;
-    	top: 0;
+    [data-stickybits-sticky=true] & {
+      left: 0;
+      top: 0;
+      position: fixed;
     }
   }
+  color: white;
+	&__items {
+
+	}
 	&__item {
     display: inline-block;
     padding: 1rem;
@@ -40,6 +36,7 @@ ul {
 	&--first {
 		margin-top: 300px;
 	}
+	&--second {}
 	&__text {
 		text-align: center;
 	}

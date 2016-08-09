@@ -4,7 +4,7 @@
 	<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Sticky Bits Example</title>
-	<link rel="stylesheet" media="all" href="css/example-normal.css">
+	<link rel="stylesheet" media="all" href="css/example.css">
 </head>
 <body>
 	<header>
@@ -18,17 +18,17 @@
 				</li>
 			</ul>
 		</nav>
-		<nav id="nav-two" class="nav nav--two">
-			<ul class="nav__items">
-				<li class="nav__item">
-					A nav item
-				</li>
-				<li class="nav__item">
-					Another nav item
-				</li>
-			</ul>
-		</nav>
 	</header>
+	<nav id="nav-two" class="nav nav--two">
+		<ul class="nav__items">
+			<li class="nav__item">
+				A nav item
+			</li>
+			<li class="nav__item">
+				Another nav item
+			</li>
+		</ul>
+	</nav>
 	<main class="main">
 		<section id="section-first" class="section section--first">
 			<p class="section__text">First Section</p> 
@@ -43,7 +43,7 @@
 	<script rel="javascript" src="src/sticky-bits.js"></script>
 	<script
 	>
-	StickyBits('nav-two', 'section-second');
+	StickyBits('nav-two');
 		
 	</script>
 </body>
