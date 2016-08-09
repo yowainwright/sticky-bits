@@ -57,13 +57,15 @@
           scrollPosition = window.scrollY;
 
       if ( test === true ) {
+        offset = stickyBit.offsetTop;
         if ( offset > scrollPosition && stickyBit.style.top === '0') {
-          return stickyBit.setAttribute('data-stickybits-sticky', false);
+          return stickyBit.style.top = 'auto';
         } else {
-          return stickyBit.setAttribute('data-stickybits-sticky', true);
+          return stickyBit.style.top = '0';
         }
 
       } else {
+        offset = wrapper.offsetTop;
         if ( offset > scrollPosition ) {
           return wrapper.setAttribute('data-stickybits-sticky', false);
         } else {
