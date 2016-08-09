@@ -5,7 +5,7 @@
 
 })( this, function( utils ) {
 
-  window.StickyBits = function( selectorId ) {
+  window.StickyBits = function( selectorId, offset ) {
 
     var stickyBit = document.getElementById( selectorId );
 
@@ -53,19 +53,19 @@
 
     var stickiness = function() {
 
-      var offset,
+      var stickyOffset,
           scrollPosition = window.scrollY;
 
       if ( test === true ) {
-        offset = stickyBit.offsetTop;
-        if ( offset > scrollPosition && stickyBit.style.top === '0') {
+        stickyOffset = typeof offset !== 'undefined' ? offset : stickyBit.offsetTop;
+        if ( stickyOffset > scrollPosition && stickyBit.style.top === '0') {
           return stickyBit.style.top = '';
         } else {
           return stickyBit.style.top = '0';
         }
 
       } else {
-        offset = wrapper.offsetTop;
+        stickyOffset = typeof offset !== 'undefined' ? offset : wrapper.offsetTop;
         if ( offset > scrollPosition ) {
           return wrapper.setAttribute('data-stickybits-sticky', false);
         } else {
